@@ -39,4 +39,5 @@ public class AgendaController {
     public ResponseEntity<?> vote(@RequestParam("agendaId") Long agendaId) {
         return null;
     }
+
 }

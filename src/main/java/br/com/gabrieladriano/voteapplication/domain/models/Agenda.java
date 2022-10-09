@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "agendas")
 @Data
 @AllArgsConstructor@NoArgsConstructor
-public class Agenda  implements Serializable{
+public class Agenda implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -30,5 +30,5 @@ public class Agenda  implements Serializable{
     private String description;
 
     @Column(name = "is_open", nullable = false)
-    private String open;
+    private Boolean open;
 }
