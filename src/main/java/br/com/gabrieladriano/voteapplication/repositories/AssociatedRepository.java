@@ -15,7 +15,7 @@ public interface AssociatedRepository extends JpaRepository<Associated, Long> {
                  + "    FROM associateds                                            "
                  + "        WHERE nm_associated ILIKE :name                         "
                  + "            AND desc_cpf = :cpf                                 "   
-                 + "            AND able = Coalesce(:able, is not null)             "
+                 + "            AND (is_able = :able or :able is null )             "
                  + "                ORDER BY nm_associated                          " 
                  + "                    OFFSET :page_index                          "
                  + "                    LIMIT  :page_size                           "
