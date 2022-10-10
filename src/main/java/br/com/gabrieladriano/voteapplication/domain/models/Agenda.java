@@ -23,7 +23,7 @@ public class Agenda implements Serializable{
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "nm_agenda", nullable = false)
+    @Column(name = "nm_title", nullable = false)
     private String title;
 
     @Column(name = "desc_agenda", nullable = true)
