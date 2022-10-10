@@ -1,7 +1,11 @@
-FROM openjdk:17-jdk-alpine
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
+FROM maven:3-openjdk-17-slim as build
+COPY pom.xml /build/
+COPY src /build/src
+WORKDIR /build
+RUN mvn package -DskipTests
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/voteapplication-0.0.1-SNAPSHOT.jar /app/vote.jar
+COPY --from=build /build/target/voteapplication-0.0.1-SNAPSHOT.jar /app/
+VOLUME /tmp
 EXPOSE $PORT
-ENTRYPOINT ["java","-Xmx512m","-DServer.port=$PORT","-jar","vote.jar"]
+ENTRYPOINT ["java", "-Dserver.port=$PORT", "-Xmx256m", "-Xss512k", "-jar", "voteapplication-0.0.1-SNAPSHOT.jar"]
