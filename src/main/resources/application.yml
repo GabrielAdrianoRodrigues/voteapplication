@@ -25,5 +25,5 @@ springdoc:
         path: /swagger-ui.html
 
 #Deploy config(heroku)
-server:
-    port: ${PORT}
+#server:
+ #   port: ${PORT}
