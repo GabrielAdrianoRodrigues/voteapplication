@@ -29,13 +29,12 @@ public class AgendaService {
     private AssociatedRepository associatedRepository;
 
     public List<AgendaDTO> findAllPaginetedAndFiltered(int page_index, int page_size, AgendaFilter filter) {
-        /*return AgendaDTO.parseList(agendaRepository.findAllPaginetedAndFiltered(page_index,
+        return AgendaDTO.parseList(agendaRepository.findAllPaginetedAndFiltered(page_index,
                                                                                 page_size,
                                                                                 (filter.getTitle() == null) ? "%" : "%"+filter.getTitle()+"%",
                                                                                 (filter.getDescrible() == null) ? "%" : "%"+filter.getDescrible()+"%",
                                                                                 filter.getOpen()
-        ));*/
-        return AgendaDTO.parseList(agendaRepository.findAll());
+        ));
     }
 
     public AgendaDTO findAgenda(Long agendaId) throws Exception {

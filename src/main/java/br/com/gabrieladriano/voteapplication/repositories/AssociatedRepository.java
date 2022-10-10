@@ -11,17 +11,18 @@ import br.com.gabrieladriano.voteapplication.domain.models.Associated;
 
 public interface AssociatedRepository extends JpaRepository<Associated, Long> {
 
-    @Query(value = "SELECT *                                                    "
-                 + "    FROM associateds                                        "
-                 + "        WHERE UNACCENT(nm_associated) ILIKE UNACCENT(:name) "
-                 + "            AND desc_cpf = :cpf                             "
-                 + "            AND (:able IS NULL OR able = :able)             "
-                 + "                OFFSET :page_index                          "
-                 + "                LIMIT  :page_size                           "
-                 + "    ORDER BY nm_associated                                  " 
+    @Query(value = "SELECT *                                                        "
+                 + "    FROM associateds                                            "
+                 + "        WHERE nm_associated ILIKE :name                         "
+                 + "            AND desc_cpf = :cpf                                 "   
+                 + "            AND (is_able IN (:able)) OR is_able IS NOT NULL     "
+                 + "                ORDER BY nm_associated                          " 
+                 + "                    OFFSET :page_index                          "
+                 + "                    LIMIT  :page_size                           "
         ,nativeQuery = true
     )
-    List<Associated> findAllPaginetedAndFiltered(int page_index, int page_size, 
+    List<Associated> findAllPaginetedAndFiltered(@Param("page_index") int page_index, 
+                                                 @Param("page_size") int page_size, 
                                                  @Param("name") String name, 
                                                  @Param("cpf") String cpf,
                                                  @Param("able") Boolean able

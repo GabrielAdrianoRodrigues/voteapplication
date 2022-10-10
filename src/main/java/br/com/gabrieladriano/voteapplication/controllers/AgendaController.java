@@ -29,7 +29,7 @@ public class AgendaController {
     public ResponseEntity<?> findAllAgendas(
         @RequestParam(name = "page_index", required = false, defaultValue =  "0") int pageIndex,
         @RequestParam(name = "page_size" , required = false, defaultValue = "10") int pageSize,
-        AgendaFilter agendaFilter) {
+        @RequestParam(required = false) AgendaFilter agendaFilter) {
         return ResponseEntity.ok(agendaService.findAllPaginetedAndFiltered(pageIndex, pageSize, agendaFilter));
     }
 
