@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @EnableFeignClients
 @OpenAPIDefinition(
 	info = @Info(title = "Voting API", version = "1.0", description = "API Sicredi Challenge"),
-	servers = {@Server(url = "http://localhost:8080")}
+	servers = {@Server(url = "https://gb-voteapi-sicredi.herokuapp.com/")}
 )
 public class VoteapplicationApplication {
 
