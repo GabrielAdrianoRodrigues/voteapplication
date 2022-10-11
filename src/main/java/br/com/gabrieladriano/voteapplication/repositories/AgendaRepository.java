@@ -12,7 +12,7 @@ public interface AgendaRepository extends JpaRepository<Agenda, Long> {
     @Query(value = "SELECT *                                                                     "
                  + "    FROM agendas                                                             "
                  + "        WHERE UNACCENT(nm_title) ILIKE UNACCENT(:title)                      "
-                 + "            AND desc_agenda = :desc                                          "
+                 + "            AND desc_agenda ILIKE :desc                                      "
                  + "            AND ((:open IS NULL) OR (:open IS NOT NULL AND is_open = :open)) "
                  + "                ORDER BY nm_title                                            "
                  + "                    OFFSET :page_index                                       "

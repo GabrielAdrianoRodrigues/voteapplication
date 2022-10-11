@@ -14,7 +14,7 @@ public interface AssociatedRepository extends JpaRepository<Associated, Long> {
     @Query(value = "SELECT *                                                                     "
                  + "    FROM associateds                                                         "
                  + "        WHERE nm_associated ILIKE :name                                      "
-                 + "            AND desc_cpf = :cpf                                              "   
+                 + "            AND desc_cpf ILIKE :cpf                                          "   
                  + "            AND ((:able IS NULL) OR (:able IS NOT NULL AND is_able = :able)) "
                  + "                ORDER BY nm_associated                                       " 
                  + "                    OFFSET :page_index                                       "
