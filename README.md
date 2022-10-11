@@ -13,4 +13,5 @@ Tecnologias utilizada:
  * Docker
  * Postgres SQL
  * OpenUi
-outras competencias : Linux, SOLID, Rest, PostMan, Git, DBeaver;
+ * Outras tecnologias utilizadas :
+   -> Linux, SOLID, Rest, PostMan, Git, DBeaver;
