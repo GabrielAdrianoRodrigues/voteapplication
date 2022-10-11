@@ -18,6 +18,7 @@ public class AssociatedDTO {
     private String cpf;
     private Boolean able;
 
+    //metodos estaticos que encapsulam o parsing entre DTO e entity
     public static List<AssociatedDTO> parseList(List<Associated> toParseList) {
         return toParseList.stream().map(a -> new AssociatedDTO(a.getId(), a.getName(), a.getCpf(), a.getAble())).collect(Collectors.toList());
     }

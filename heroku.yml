@@ -1,3 +1,4 @@
+# Configuracao para o heroku buildar o Dockerfile
 build:
   docker:
     web: Dockerfile

@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
+//Controler da pauta
+//seguindo boas praticas utilizei Forms/DTOS 
 @RestController
 @RequestMapping("api/v1/agenda")
 public class AgendaController {
@@ -25,6 +26,7 @@ public class AgendaController {
     @Autowired
     private AgendaService agendaService;
     
+    //pensando em performace sem utilizar resolvi utilizar a paginazao caso no futuro exista vários registros
     @GetMapping
     public ResponseEntity<?> findAllAgendas(
         @RequestParam(name = "page_index", required = false, defaultValue =  "0") int pageIndex,
@@ -40,6 +42,15 @@ public class AgendaController {
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("{agendaId}/getresult")
+    public ResponseEntity<?> agendaResult(@PathVariable("agendaId") long agendaId) {
+        try {
+            return ResponseEntity.ok(agendaService.getResult(agendaId));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }   
     }
 
     @PostMapping

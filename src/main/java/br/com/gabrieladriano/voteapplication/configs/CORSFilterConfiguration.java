@@ -8,6 +8,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+//Apesar de não ser requisitado segurança resolvi por deixar o CORS ja configurado
 @Configuration
 public class CORSFilterConfiguration {
 

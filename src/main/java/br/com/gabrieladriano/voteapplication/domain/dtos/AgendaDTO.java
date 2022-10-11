@@ -16,6 +16,7 @@ public class AgendaDTO {
     private String description;
     private Boolean open;
 
+    //metodos estaticos que encapsulam o parsing entre DTO e entity
     public static List<AgendaDTO> parseList(List<Agenda> toParseList) {
         return toParseList.stream().map(a -> new AgendaDTO(a.getId(), a.getTitle(), a.getDescription(), a.getOpen())).collect(Collectors.toList());
     }

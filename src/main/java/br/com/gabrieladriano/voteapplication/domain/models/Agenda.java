@@ -31,4 +31,7 @@ public class Agenda implements Serializable{
 
     @Column(name = "is_open", nullable = false)
     private Boolean open;
+
+    @Column(name = "time_of_creation", nullable = false)
+    private Long time_of_creation;
 }

@@ -8,7 +8,12 @@ import org.springframework.data.repository.query.Param;
 
 import br.com.gabrieladriano.voteapplication.domain.models.Agenda;
 
+//Resolvi por utilizar spring data por conta de ser uma biblioteca muito poderosa existindo inumeros metodos
+//ja implementados
 public interface AgendaRepository extends JpaRepository<Agenda, Long> {
+    //o select ja esta pensado para caso existam parametros nulos
+    //resolvi optar pela robustes da anotation @Query que utilizar derived querys ou interfaces Custom e Impl
+    //tambem optei por nao utilizar projections pois já existem os DTOS
     @Query(value = "SELECT *                                                                     "
                  + "    FROM agendas                                                             "
                  + "        WHERE UNACCENT(nm_title) ILIKE UNACCENT(:title)                      "

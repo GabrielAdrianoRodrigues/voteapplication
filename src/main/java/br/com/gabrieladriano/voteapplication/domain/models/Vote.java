@@ -23,9 +23,12 @@ public class Vote implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;    
 
+    //Resolvi por mapear por id e fazer as buscas somente se necessarias 
     @Column(name = "fk_associated_id", nullable = false)
     private Long associatedId;
 
+    //Até porque mapear por anotations costuma não ter boa performar visando que alguem 
+    //que não tenha muita experiencia em configurar o fetch possa dar manutencao
     @Column(name = "fk_agenda_id", nullable = false)
     private Long agendaId;
 

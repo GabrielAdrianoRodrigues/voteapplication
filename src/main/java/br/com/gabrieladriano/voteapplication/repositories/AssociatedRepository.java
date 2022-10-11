@@ -11,6 +11,7 @@ import br.com.gabrieladriano.voteapplication.domain.models.Associated;
 
 public interface AssociatedRepository extends JpaRepository<Associated, Long> {
 
+    //Documentação presente em AgendaRepository
     @Query(value = "SELECT *                                                                     "
                  + "    FROM associateds                                                         "
                  + "        WHERE nm_associated ILIKE :name                                      "
@@ -27,6 +28,6 @@ public interface AssociatedRepository extends JpaRepository<Associated, Long> {
                                                  @Param("cpf") String cpf,
                                                  @Param("able") Boolean able
     );
-
+    //derived query
     Optional<Associated> findByCpf(String cpf);
 }

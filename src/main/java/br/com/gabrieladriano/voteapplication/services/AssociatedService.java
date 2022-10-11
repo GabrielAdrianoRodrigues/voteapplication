@@ -14,6 +14,7 @@ import br.com.gabrieladriano.voteapplication.domain.forms.AssociatedForm;
 import br.com.gabrieladriano.voteapplication.domain.models.Associated;
 import br.com.gabrieladriano.voteapplication.repositories.AssociatedRepository;
 
+//Boa parte esta documentado em AgendaService
 @Service
 public class AssociatedService {
     
@@ -24,7 +25,6 @@ public class AssociatedService {
     private UserInfoClient userInfoClient;
 
     public List<AssociatedDTO> findAllPaginetedAndFiltered(int page_index, int page_size, AssociatedFilter filter) {
-        System.out.println(filter.toString());
         return  AssociatedDTO.parseList(associatedRepository.findAllPaginetedAndFiltered(page_index, 
                                                                                          page_size, 
                                                                                          (filter.getName().isEmpty() || filter.getName() == null) ? "%" : "%"+filter.getName()+"%",
@@ -43,7 +43,7 @@ public class AssociatedService {
         }    
 
         boolean able;
-
+        // consumo a api do Feigh
         try {
             able = (userInfoClient.isAbleToVote(form.getCpf()).getBody().toString().contains("UNABLE_TO_VOTE")) ? false : true;
         } catch (Exception e) {

@@ -17,6 +17,8 @@ import br.com.gabrieladriano.voteapplication.domain.filters.AssociatedFilter;
 import br.com.gabrieladriano.voteapplication.domain.forms.AssociatedForm;
 import br.com.gabrieladriano.voteapplication.services.AssociatedService;
 
+//Controler do associado
+//seguindo boas praticas utilizei Forms/DTOS 
 @RestController
 @RequestMapping("api/v1/associated")
 public class AssociatedController {
