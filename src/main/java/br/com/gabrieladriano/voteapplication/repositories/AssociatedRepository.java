@@ -11,14 +11,14 @@ import br.com.gabrieladriano.voteapplication.domain.models.Associated;
 
 public interface AssociatedRepository extends JpaRepository<Associated, Long> {
 
-    @Query(value = "SELECT *                                                        "
-                 + "    FROM associateds                                            "
-                 + "        WHERE nm_associated ILIKE :name                         "
-                 + "            AND desc_cpf = :cpf                                 "   
-                 + "            AND (is_able = :able or is_able is not null )       "
-                 + "                ORDER BY nm_associated                          " 
-                 + "                    OFFSET :page_index                          "
-                 + "                    LIMIT  :page_size                           "
+    @Query(value = "SELECT *                                                                     "
+                 + "    FROM associateds                                                         "
+                 + "        WHERE nm_associated ILIKE :name                                      "
+                 + "            AND desc_cpf = :cpf                                              "   
+                 + "            AND ((:able IS NULL) OR (:able IS NOT NULL AND is_able = :able)) "
+                 + "                ORDER BY nm_associated                                       " 
+                 + "                    OFFSET :page_index                                       "
+                 + "                    LIMIT  :page_size                                        "
         ,nativeQuery = true
     )
     List<Associated> findAllPaginetedAndFiltered(@Param("page_index") int page_index, 
