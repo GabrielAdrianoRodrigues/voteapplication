@@ -11,15 +11,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor@AllArgsConstructor
 public class AgendaDTO {
+    private Long id;
     private String title;
     private String description;
     private Boolean open;
 
     public static List<AgendaDTO> parseList(List<Agenda> toParseList) {
-        return toParseList.stream().map(a -> new AgendaDTO(a.getTitle(), a.getDescription(), a.getOpen())).collect(Collectors.toList());
+        return toParseList.stream().map(a -> new AgendaDTO(a.getId(), a.getTitle(), a.getDescription(), a.getOpen())).collect(Collectors.toList());
     }
 
     public static AgendaDTO parse(Agenda toParse) {
-        return new AgendaDTO(toParse.getTitle(), toParse.getDescription(), toParse.getOpen());
+        return new AgendaDTO(toParse.getId(), toParse.getTitle(), toParse.getDescription(), toParse.getOpen());
     } 
 }

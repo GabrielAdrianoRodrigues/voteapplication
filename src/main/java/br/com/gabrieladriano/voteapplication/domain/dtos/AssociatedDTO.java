@@ -13,15 +13,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor@NoArgsConstructor
 public class AssociatedDTO {
+    private Long id;
     private String name;
     private String cpf;
     private Boolean able;
 
     public static List<AssociatedDTO> parseList(List<Associated> toParseList) {
-        return toParseList.stream().map(a -> new AssociatedDTO(a.getName(), a.getCpf(), a.getAble())).collect(Collectors.toList());
+        return toParseList.stream().map(a -> new AssociatedDTO(a.getId(), a.getName(), a.getCpf(), a.getAble())).collect(Collectors.toList());
     }
 
     public static AssociatedDTO parse(Associated toParse) {
-        return new AssociatedDTO(toParse.getName(), toParse.getCpf(), toParse.getAble());
+        return new AssociatedDTO(toParse.getId(), toParse.getName(), toParse.getCpf(), toParse.getAble());
     } 
 }
