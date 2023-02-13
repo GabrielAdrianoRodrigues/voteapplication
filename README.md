@@ -1,3 +1,5 @@
+!!O banco de dados da aplicação expirou no Heroku então mesma não está mais no "ar" para fim de teste utilizar o banco em memoria H2
+
 # voteapplication
 
 -Infelizmente não tive tempo de implementar o Kafka 
